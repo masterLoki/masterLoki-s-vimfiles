@@ -426,6 +426,7 @@ function fuf#launch(modeName, initialPattern, partialMatching)
   let s:runningHandler.partialMatching = a:partialMatching
   let s:runningHandler.bufNrPrev = bufnr('%')
   let s:runningHandler.lastCol = -1
+  let s:runningHandler.windowRestoringCommand = winrestcmd()
   call s:runningHandler.onModeEnterPre()
   call s:setTemporaryGlobalOption('completeopt', 'menuone')
   call s:setTemporaryGlobalOption('ignorecase', 0)
@@ -1021,6 +1022,7 @@ function s:handlerBase.onInsertLeave()
   call s:restoreTemporaryGlobalOptions()
   call s:deactivateFufBuffer()
   call fuf#saveInfoFile(self.getModeName(), self.info)
+  execute self.windowRestoringCommand
   let fOpen = exists('s:reservedCommand')
   if fOpen
     call self.onOpen(s:reservedCommand[0], s:reservedCommand[1])
