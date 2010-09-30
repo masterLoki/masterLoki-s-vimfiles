@@ -68,6 +68,24 @@ snippet try Try/Except/Finally
 		${4:raise $3}
 	finally:
 		${5:pass}
+snippet if If
+	if ${1:Condition}:
+		# code...
+snippet ifel if/else
+	if ${1:Condition}:
+		# code...
+	else:
+		# code...
+snippet ifef if/elif/else
+	if ${1:Condition}:
+		# code...
+	elif ${2:Condition}:
+		# code...
+	else:
+		# code...
+snippet elif
+	elif ${1:Condition}:
+		# code...
 snippet try Try/Except/Else/Finally
 	try:
 		${1:pass}
