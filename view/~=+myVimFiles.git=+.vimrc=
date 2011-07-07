@@ -12,6 +12,7 @@ vnoremap <buffer> <silent> ][ m':exe "normal! gv"|call search('^\s*endf*\%[un
 nnoremap <buffer> <silent> ][ m':call search('^\s*endf*\%[unction]\>', "W")
 vnoremap <buffer> <silent> ]] m':exe "normal! gv"|call search('^\s*fu\%[nction]\>', "W")
 nnoremap <buffer> <silent> ]] m':call search('^\s*fu\%[nction]\>', "W")
+cnoremap <buffer> <expr>  fugitive#buffer().rev()
 setlocal keymap=
 setlocal noarabic
 setlocal autoindent
@@ -112,12 +113,22 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 19 - ((18 * winheight(0) + 19) / 39)
+140
+normal zo
+140
+normal zo
+148
+normal zo
+140
+normal zo
+140
+normal zo
+let s:l = 148 - ((17 * winheight(0) + 11) / 23)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-19
-normal! 030l
+148
+normal! 029l
 lcd ~\myVimFiles.git
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
